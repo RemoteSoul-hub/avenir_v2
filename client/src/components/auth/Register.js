@@ -33,15 +33,15 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 
   return (
     <section className="container">
-      <h1 className="large text-primary">Sign Up</h1>
+      <h1 className="large text-primary">Inscription</h1>
       <p className="lead">
-        <i className="fas fa-user" /> Create Your Account
+        <i className="fas fa-user" /> Créer un compte
       </p>
       <form className="form" onSubmit={onSubmit}>
         <div className="form-group">
           <input
             type="text"
-            placeholder="Name"
+            placeholder="Nom"
             name="name"
             value={name}
             onChange={onChange}
@@ -50,20 +50,19 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         <div className="form-group">
           <input
             type="email"
-            placeholder="Email Address"
+            placeholder="Adresse mail"
             name="email"
             value={email}
             onChange={onChange}
           />
           <small className="form-text">
-            This site uses Gravatar so if you want a profile image, use a
-            Gravatar email
+            Pour spécifier votre photo de profil, veuillez l'ajouter via <a href='https://fr.gravatar.com/' alt=''>Gravatar</a>.
           </small>
         </div>
         <div className="form-group">
           <input
             type="password"
-            placeholder="Password"
+            placeholder="Mot de passe"
             name="password"
             value={password}
             onChange={onChange}
@@ -72,16 +71,16 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         <div className="form-group">
           <input
             type="password"
-            placeholder="Confirm Password"
+            placeholder="Confirmation du mot de passe"
             name="password2"
             value={password2}
             onChange={onChange}
           />
         </div>
-        <input type="submit" className="btn btn-primary" value="Register" />
+        <input type="submit" className="btn btn-primary" value="Valider" />
       </form>
       <p className="my-1">
-        Already have an account? <Link to="/login">Sign In</Link>
+        Vousz avez un compte existant ? <Link to="/login">Connectez-vous</Link>
       </p>
     </section>
   );

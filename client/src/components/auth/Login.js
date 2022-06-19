@@ -26,15 +26,15 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <section className="container">
-      <h1 className="large text-primary">Sign In</h1>
+      <h1 className="large text-primary">Connexion</h1>
       <p className="lead">
-        <i className="fas fa-user" /> Sign Into Your Account
+        <i className="fas fa-user" /> Accès à votre compte
       </p>
       <form className="form" onSubmit={onSubmit}>
         <div className="form-group">
           <input
             type="email"
-            placeholder="Email Address"
+            placeholder="Adresse mail"
             name="email"
             value={email}
             onChange={onChange}
@@ -43,17 +43,17 @@ const Login = ({ login, isAuthenticated }) => {
         <div className="form-group">
           <input
             type="password"
-            placeholder="Password"
+            placeholder="Mot de passe"
             name="password"
             value={password}
             onChange={onChange}
             minLength="6"
           />
         </div>
-        <input type="submit" className="btn btn-primary" value="Login" />
+        <input type="submit" className="btn btn-primary" value="Valider" />
       </form>
       <p className="my-1">
-        Don't have an account? <Link to="/register">Sign Up</Link>
+        Pas de compte ? Pas de soucis. <Link to="/register">Inscrivez-vous</Link>
       </p>
     </section>
   );
