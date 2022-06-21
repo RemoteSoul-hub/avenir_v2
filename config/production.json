@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://neryanworks:neryanworks@avenirdb.uwh5m.mongodb.net/?retryWrites=true&w=majority",
+    "jwtSecret": "avenirToken"
+  }
