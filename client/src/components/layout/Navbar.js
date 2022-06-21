@@ -7,25 +7,30 @@ import { logout } from '../../actions/auth';
 const Navbar = ({ auth: { isAuthenticated }, logout }) => {
   const authLinks = (
     <ul>
-       <li>
-        <Link to="/">Accueil</Link>
-      </li>
-      <li>
-        <Link to="/profiles">Utilisateurs</Link>
-      </li>
+        {/* <li>
+        <Link to="/dashboard">
+Accueil
+        </Link>
+      </li> */}
       <li>
         <Link to="/posts">Emploi</Link>
       </li>
       <li>
-        <Link to="/dashboard">
-          <i className="fas fa-user" />{' '}
-          <span className="hide-sm">Dashboard</span>
-        </Link>
+        <Link to="/logement">Logement</Link>
       </li>
+      <li>
+        <Link to="/service">Services</Link>
+      </li>
+      <li>
+        <Link to="/conseils">Conseils</Link>
+      </li>
+      {/* <li>
+        <Link to="/profiles">Membres</Link>
+      </li> */}
       <li>
         <a onClick={logout} href="#!">
           <i className="fas fa-sign-out-alt" />{' '}
-          <span className="hide-sm">Logout</span>
+          <span className="hide-sm">Déconnexion</span>
         </a>
       </li>
     </ul>
@@ -52,7 +57,7 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
     <nav className="navbar bg-dark">
       <h1>
         <Link to="/">
-          <img src='/Logo.png' alt='' width='40' height='40' className="logo" /> 
+          <img src='/Logo.png' alt='' className="logo" /> 
         </Link>
       </h1>
       <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>

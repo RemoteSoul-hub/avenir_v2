@@ -85,7 +85,7 @@ const ProfileForm = ({
   return (
     <section className="container">
       <h1 className="large text-primary">
-        {creatingProfile ? 'Create Your Profile' : 'Edit Your Profile'}
+        {creatingProfile ? 'Créer votre profil' : 'Modifier votre profil'}
       </h1>
       <p className="lead">
         <i className="fas fa-user" />
@@ -98,7 +98,7 @@ const ProfileForm = ({
         <div className="form-group">
           <select name="status" value={status} onChange={onChange}>
             <option>* Sélectionnez votre status</option>
-            <option value="Professionel">Professionel</option>
+            <option value="Professionnel">Professionnel</option>
             <option value="Particulier">Particulier</option>
           </select>
           <small className="form-text">
@@ -246,9 +246,9 @@ const ProfileForm = ({
           </Fragment>
         )}
 
-        <input type="submit" className="btn btn-primary my-1" />
+        <input type="submit" className="btn btn-primary my-1" value="Valider" />
         <Link className="btn btn-light my-1" to="/dashboard">
-          Go Back
+          Retour
         </Link>
       </form>
     </section>

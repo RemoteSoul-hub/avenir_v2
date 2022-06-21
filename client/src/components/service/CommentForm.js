@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addComment } from '../../actions/post';
+import { addComment } from '../../actions/service';
 
 const CommentForm = ({ postId, addComment }) => {
   const [text, setText] = useState('');
@@ -23,7 +23,7 @@ const CommentForm = ({ postId, addComment }) => {
           name='text'
           cols='30'
           rows='5'
-          placeholder='...'
+          placeholder='Votre commentaire...'
           value={text}
           onChange={e => setText(e.target.value)}
           required

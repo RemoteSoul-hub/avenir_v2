@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import formatDate from '../../utils/formatDate';
 import { connect } from 'react-redux';
-import { addLike, removeLike, deletePost } from '../../actions/post';
+import { addLike, removeLike, deletePost } from '../../actions/service';
 
 const PostItem = ({
   addLike,
@@ -41,7 +41,7 @@ const PostItem = ({
           >
             <i className="fas fa-thumbs-down" />
           </button>
-          <Link to={`/posts/${_id}`} className="btn btn-primary">
+          <Link to={`/service/${_id}`} className="btn btn-primary">
             Discussion{' '}
             {comments.length > 0 && (
               <span className="comment-count">{comments.length}</span>

@@ -11,10 +11,10 @@ const ProfileEducation = ({
       {formatDate(from)} - {to ? formatDate(to) : 'Now'}
     </p>
     <p>
-      <strong>Degree: </strong> {degree}
+      <strong>Diplôme: </strong> {degree}
     </p>
     <p>
-      <strong>Field Of Study: </strong> {fieldofstudy}
+      <strong>Domaine d'études: </strong> {fieldofstudy}
     </p>
     <p>
       <strong>Description: </strong> {description}

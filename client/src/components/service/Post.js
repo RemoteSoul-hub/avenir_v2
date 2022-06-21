@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { Link, useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
-import PostItem from '../posts/PostItem';
-import CommentForm from '../post/CommentForm';
-import CommentItem from '../post/CommentItem';
-import { getPost } from '../../actions/post';
+import PostItem from '../services/PostItem';
+import CommentForm from '../service/CommentForm';
+import CommentItem from '../service/CommentItem';
+import { getPost } from '../../actions/service';
 
 const Post = ({ getPost, post: { post, loading } }) => {
   const { id } = useParams();
@@ -18,8 +18,8 @@ const Post = ({ getPost, post: { post, loading } }) => {
     <Spinner />
   ) : (
     <section className="container">
-      <Link to="/posts" className="btn">
-        Retour
+      <Link to="/service" className="btn">
+        Précédent
       </Link>
       <PostItem post={post} showActions={false} />
       <CommentForm postId={post._id} />

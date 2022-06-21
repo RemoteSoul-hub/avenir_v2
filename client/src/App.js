@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
+import Conseil from './components/layout/Conseil';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
@@ -13,6 +14,10 @@ import Profiles from './components/profiles/Profiles';
 import Profile from './components/profile/Profile';
 import Posts from './components/posts/Posts';
 import Post from './components/post/Post';
+import Logements from './components/logements/Posts';
+import Logement from './components/logement/Post';
+import Services from './components/services/Posts';
+import Service from './components/service/Post';
 import NotFound from './components/layout/NotFound';
 import PrivateRoute from './components/routing/PrivateRoute';
 import { LOGOUT } from './actions/types';
@@ -75,6 +80,11 @@ const App = () => {
           />
           <Route path="posts" element={<PrivateRoute component={Posts} />} />
           <Route path="posts/:id" element={<PrivateRoute component={Post} />} />
+          <Route path="logement" element={<PrivateRoute component={Logements} />} />
+          <Route path="logement/:id" element={<PrivateRoute component={Logement} />} />
+          <Route path="service" element={<PrivateRoute component={Services} />} />
+          <Route path="service/:id" element={<PrivateRoute component={Service} />} />
+          <Route path="/conseils" element={<Conseil />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>
       </Router>
