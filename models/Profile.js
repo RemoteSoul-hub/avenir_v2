@@ -16,6 +16,7 @@ const ProfileSchema = new mongoose.Schema({
   },
   status: {
     type: String,
+    default: "Particulier",
     required: true
   },
   skills: {

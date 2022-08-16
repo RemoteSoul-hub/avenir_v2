@@ -101,7 +101,7 @@ export const createProfile =
       });
 
       dispatch(
-        setAlert(edit ? 'Profile Updated' : 'Profile Created', 'success')
+        setAlert(edit ? 'Profil Mis à Jour' : 'Profil Généré', 'success')
       );
 
       if (!edit) {
@@ -131,7 +131,7 @@ export const addExperience = (formData, navigate) => async (dispatch) => {
       payload: res.data
     });
 
-    dispatch(setAlert('Experience Added', 'success'));
+    dispatch(setAlert('Expérience Ajoutée', 'success'));
 
     navigate('/dashboard');
   } catch (err) {
@@ -158,7 +158,7 @@ export const addEducation = (formData, navigate) => async (dispatch) => {
       payload: res.data
     });
 
-    dispatch(setAlert('Education Added', 'success'));
+    dispatch(setAlert('Contenu Mis à Jour', 'success'));
 
     navigate('/dashboard');
   } catch (err) {
@@ -185,7 +185,7 @@ export const deleteExperience = (id) => async (dispatch) => {
       payload: res.data
     });
 
-    dispatch(setAlert('Experience Removed', 'success'));
+    dispatch(setAlert('Expérience Supprimée', 'success'));
   } catch (err) {
     dispatch({
       type: PROFILE_ERROR,
@@ -204,7 +204,7 @@ export const deleteEducation = (id) => async (dispatch) => {
       payload: res.data
     });
 
-    dispatch(setAlert('Education Removed', 'success'));
+    dispatch(setAlert('Contenu Mis à Jour', 'success'));
   } catch (err) {
     dispatch({
       type: PROFILE_ERROR,
@@ -215,14 +215,14 @@ export const deleteEducation = (id) => async (dispatch) => {
 
 // Delete account & profile
 export const deleteAccount = () => async (dispatch) => {
-  if (window.confirm('Are you sure? This can NOT be undone!')) {
+  if (window.confirm('Veuillez confirmer votre décision ? Ceci est une action irreversible')) {
     try {
       await api.delete('/profile');
 
       dispatch({ type: CLEAR_PROFILE });
       dispatch({ type: ACCOUNT_DELETED });
 
-      dispatch(setAlert('Your account has been permanently deleted'));
+      dispatch(setAlert('Votre compte a été supprimé'));
     } catch (err) {
       dispatch({
         type: PROFILE_ERROR,

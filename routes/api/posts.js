@@ -5,6 +5,7 @@ const auth = require('../../middleware/auth');
 
 const Post = require('../../models/Post');
 const User = require('../../models/User');
+const Profile = require('../../models/Profile');
 const checkObjectId = require('../../middleware/checkObjectId');
 
 // @route    POST api/posts
@@ -21,18 +22,30 @@ router.post(
     }
 
     try {
+      // console.log(req.user.id)
       const user = await User.findById(req.user.id).select('-password');
-
-      const newPost = new Post({
-        text: req.body.text,
-        name: user.name,
-        avatar: user.avatar,
+      const profile = await Profile.findOne({
         user: req.user.id
-      });
+      })
 
-      const post = await newPost.save();
+      // console.log(profile.status)
 
-      res.json(post);
+          if( profile.status == "Professionnel" ) {
+            const newPost = new Post({
+              text: req.body.text,
+              name: user.name,
+              avatar: user.avatar,
+              user: req.user.id
+            });
+      
+            const post = await newPost.save();
+            res.json(post);
+          }
+          else {
+            console.error("Erreur");
+            res.status(403).send("Pas d'authorisation");
+          }
+
     } catch (err) {
       console.error(err.message);
       res.status(500).send('Server Error');
@@ -67,7 +80,6 @@ router.get('/:id', auth, checkObjectId('id'), async (req, res) => {
     res.json(post);
   } catch (err) {
     console.error(err.message);
-
     res.status(500).send('Server Error');
   }
 });
@@ -90,7 +102,7 @@ router.delete('/:id', [auth, checkObjectId('id')], async (req, res) => {
 
     await post.remove();
 
-    res.json({ msg: 'Post removed' });
+    res.json({ msg: 'Offre retirée' });
   } catch (err) {
     console.error(err.message);
 

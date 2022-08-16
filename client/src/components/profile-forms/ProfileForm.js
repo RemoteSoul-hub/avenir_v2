@@ -114,7 +114,7 @@ const ProfileForm = ({
             onChange={onChange}
           />
           <small className="form-text">
-          Description
+          Description+
           </small>
         </div>
         <div className="form-group">

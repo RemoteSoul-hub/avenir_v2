@@ -23,7 +23,7 @@ const PostForm = ({ addPost }) => {
           name='text'
           cols='30'
           rows='5'
-          placeholder='Rédiger votre post'
+          placeholder='publiez une offre - *Professionnels uniquement'
           value={text}
           onChange={e => setText(e.target.value)}
           required

@@ -13,6 +13,8 @@
   "author": "Yahya Tahoune",
   "license": "MIT",
   "dependencies": {
+    "@mui/lab": "^5.0.0-alpha.94",
+    "@mui/material": "^5.10.0",
     "axios": "^0.21.0",
     "bcryptjs": "^2.4.3",
     "client": "file:client",

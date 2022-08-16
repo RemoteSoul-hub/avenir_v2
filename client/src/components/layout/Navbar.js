@@ -15,9 +15,9 @@ Accueil
       <li>
         <Link to="/posts">Emploi</Link>
       </li>
-      <li>
+      {/* <li>
         <Link to="/logement">Logement</Link>
-      </li>
+      </li> */}
       <li>
         <Link to="/service">Services</Link>
       </li>
@@ -59,6 +59,7 @@ Accueil
         <Link to="/">
           <img src='/Logo.png' alt='' className="logo" /> 
         </Link>
+        {/* <span className="black lead mb-5">parlons jeune !</span> */}
       </h1>
       <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
     </nav>
