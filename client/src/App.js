@@ -14,9 +14,6 @@ import Profiles from './components/profiles/Profiles';
 import Profile from './components/profile/Profile';
 import Posts from './components/posts/Posts';
 import Post from './components/post/Post';
-import Logements from './components/logements/Posts';
-import Logement from './components/logement/Post';
-import Emplois from './components/emplois/Emplois';
 
 import Services from './components/services/Posts';
 import Service from './components/service/Post';
@@ -81,12 +78,8 @@ const App = () => {
             element={<PrivateRoute component={AddEducation} />}
           />
           <Route path="posts" element={<PrivateRoute component={Posts} />} />
+          <Route path="posts/search" element={<PrivateRoute component={Posts} />} />
           <Route path="posts/:id" element={<PrivateRoute component={Post} />} />
-          <Route path="emplois" element={<PrivateRoute component={Emplois} />} />
-          <Route path="emplois/search?searchQuery" element={<PrivateRoute component={Emplois} />} />
-          <Route path="emplois/:id" element={<PrivateRoute component={Emplois} />} />
-          {/* <Route path="logement" element={<PrivateRoute component={Logements} />} />
-          <Route path="logement/:id" element={<PrivateRoute component={Logement} />} /> */}
           <Route path="service" element={<PrivateRoute component={Services} />} />
           <Route path="service/:id" element={<PrivateRoute component={Service} />} />
           <Route path="/conseils" element={<Conseil />} />

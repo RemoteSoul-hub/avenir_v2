@@ -14,7 +14,8 @@ const checkObjectId = require('../../middleware/checkObjectId');
 router.post(
   '/',
   auth,
-  check('text', 'Text is required').notEmpty(),
+  check('title', 'Text is required').notEmpty(),
+  check('message', 'Text is required').notEmpty(),
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -32,7 +33,8 @@ router.post(
 
           if( profile.status == "Professionnel" ) {
             const newPost = new Post({
-              text: req.body.text,
+              title: req.body.title,
+              message: req.body.message,
               name: user.name,
               avatar: user.avatar,
               user: req.user.id

@@ -5,15 +5,21 @@ const PostSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId
   },
-  text: {
+  title: {
     type: String,
     required: true
   },
-  name: {
+  message: {
     type: String
   },
-  avatar: {
+  creator: {
     type: String
+  },
+  tags: {
+    type: [String]
+  },
+  avatar : {
+    type: String,
   },
   likes: [
     {

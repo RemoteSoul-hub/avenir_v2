@@ -61,7 +61,7 @@ ul {
 
 /* Utilities */
 .container {
-  max-width: 1100px;
+  max-width: 100%;
   margin: auto;
   overflow: hidden;
   padding: 0 2rem;
@@ -72,6 +72,13 @@ ul {
 /* Text Styles*/
 .x-large {
   font-size: 4rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.title {
+  text-transform: uppercase;
+  font-size: 2rem;
   line-height: 1.2;
   margin-bottom: 1rem;
 }
@@ -260,6 +267,8 @@ ul {
 }
 
 /* Forms */
+
+
 .form .form-group {
   margin: 1.2rem 0;
 }
@@ -279,6 +288,7 @@ ul {
   display: block;
   width: 100%;
   padding: 0.4rem;
+  margin-top: 1.2em;
   font-size: 1.2rem;
   border: 1px solid #ccc;
 }
@@ -635,4 +645,8 @@ button {
 
 .buttons img {
   margin: 8px;
+}
+
+.paginate {
+  justify-content: space-around;
 }

@@ -10,7 +10,7 @@ const PostForm = ({ addPost }) => {
   return (
     <div className='post-form'>
       <div className='bg-primary p'>
-        <h3>Créer une offre</h3>
+        <h3>Trouver une offre</h3>
       </div>
       <form
         className='form my-1'
@@ -21,7 +21,7 @@ const PostForm = ({ addPost }) => {
           setMessage('');
         }}
       >
-         <textarea
+         {/* <textarea
           name='title'
           cols='30'
           rows='1'
@@ -29,9 +29,9 @@ const PostForm = ({ addPost }) => {
           value={title}
           onChange={e => setTitle(e.target.value)}
           required
-        />
+        /> */}
         <textarea
-          name='message'
+          name='tags'
           cols='30'
           rows='5'
           placeholder='Description'
@@ -39,7 +39,7 @@ const PostForm = ({ addPost }) => {
           onChange={e => setMessage(e.target.value)}
           required
         />
-        <input type='submit' className='btn btn-dark my-1' value='Confirmer' />
+        <input type='submit' className='btn btn-dark my-1' value='Chercher' />
       </form>
     </div>
   );
