@@ -6,7 +6,8 @@ import {
   ADD_POST,
   GET_POST,
   ADD_COMMENT,
-  REMOVE_COMMENT
+  REMOVE_COMMENT,
+  SEARCH_BY_FILTER
 } from '../actions/types';
 
 const initialState = {
@@ -26,6 +27,8 @@ function postReducer(state = initialState, action) {
         posts: payload,
         loading: false
       };
+      
+
     case GET_POST:
       return {
         ...state,

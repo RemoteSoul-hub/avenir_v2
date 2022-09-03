@@ -15,9 +15,9 @@ const PostSchema = new Schema({
   creator: {
     type: String
   },
-  tags: {
-    type: [String]
-  },
+  // tags: {
+  //   type: [String]
+  // },
   avatar : {
     type: String,
   },
@@ -55,4 +55,5 @@ const PostSchema = new Schema({
   }
 });
 
+PostSchema.index({ title: 'text' })
 module.exports = mongoose.model('post', PostSchema);

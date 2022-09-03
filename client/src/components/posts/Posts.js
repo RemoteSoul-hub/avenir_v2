@@ -1,28 +1,42 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import PostItem from './PostItem';
 import PostForm from './PostForm';
-import { getPosts } from '../../actions/post';
-import Pagination from '../Pagination';
-import { Container, AppBar, Typography, Grow, Grid, Paper, TextField, Button } from '@material-ui/core'
-import { Chip } from '@mui/material';
-import { useNavigate, useLocation } from 'react-router-dom'
-import PostSearch from './PostSearch';
+import { getPosts, searchByFilter } from '../../actions/post';
+// import { searchByFilter } from '../../actions/emploi';
+import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core'
 
-function useQuery() {
-  return new URLSearchParams(useLocation().search);
-}
 
 const Posts = ({ getPosts, post: { posts } }) => {
   useEffect(() => {
     getPosts();
   }, [getPosts]);
 
-  const navigate = useNavigate();
-  const query = useQuery();
-  const page = query.get('page') || 1;
-  const searchQuery = query.get('searchQuery');
+
+
+  // useEffect(() => {
+  //   searchByFilter();
+  // }, [searchByFilter]);
+
+  const [query, setQuery] = useState('');
+
+  const search = (posts) => {
+    return posts.filter((post) => post.title.toLowerCase().includes(query) || post.message.toLowerCase().includes(query));
+  }
+
+  
+  // const dispatch = useDispatch();
+
+  // const handleSearch = e => {
+  //   setText(e.target.value); 
+  //   dispatch(searchByFilter({ type: 'text', query: e.target.value }));
+  // }
+
+  // const navigate = useNavigate();
+  // const query = useQuery();
+  // const page = query.get('page') || 1;
+  // const searchQuery = query.get('searchQuery');
 
 
   return (
@@ -35,16 +49,47 @@ const Posts = ({ getPosts, post: { posts } }) => {
       <Container>
         <Grid container justify="space-between" alignItems="stretch" spacing={3}>
           <Grid item xs={12} sm={7}>
-            {posts.map((post) => (    
+            {search(posts).map((post) => (    
             <PostItem key={post._id} post={post} />
             ))}
-              <Paper elevation={6}>
+              {/* <Paper elevation={6}>
                 <Pagination />
-              </Paper>
+              </Paper> */}
           </Grid>
           <Grid item xs={12} sm={4}>
           <PostForm />
-          <PostSearch />
+          <div className='post-form'>
+      <div className='bg-primary p'>
+        <h3>Trouver une offre</h3>
+      </div>
+      <form
+        className='form my-1'
+        onSubmit={e => {
+          e.preventDefault();
+          setQuery('');
+        }}
+      >
+         {/* <textarea
+          name='title'
+          cols='30'
+          rows='1'
+          placeholder='Titre'
+          value={title}
+          onChange={e => setTitle(e.target.value)}
+          required
+        /> */}
+        {/* <textarea
+          name='search'
+          cols='30'
+          rows='2'
+          placeholder='Votre cible...'
+          value={text}
+          onChange={handleSearch}
+          required
+        /> */}
+        <input type='text' value={query} className='' onChange={e => setQuery(e.target.value)} placeholder='Chercher...' />
+      </form>
+    </div>
           </Grid>
         </Grid>
       </Container>
@@ -56,11 +101,11 @@ const Posts = ({ getPosts, post: { posts } }) => {
 
 Posts.propTypes = {
   getPosts: PropTypes.func.isRequired,
-  post: PropTypes.object.isRequired
+  post: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  post: state.post
+  post: state.post,
 });
 
 export default connect(mapStateToProps, { getPosts })(Posts);

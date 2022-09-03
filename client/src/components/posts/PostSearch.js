@@ -1,11 +1,21 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addPost } from '../../actions/post';
+import { searchByFilter } from '../../actions/emploi';
 
-const PostForm = ({ addPost }) => {
+const PostSearch = ({ addPost }) => {
   const [title, setTitle] = useState('');
   const [message, setMessage] = useState('');
+  const [text, setText] = useState('');
+
+  const dispatch = useDispatch();
+
+  const handleSearch = e => {
+    setText(e.target.value); 
+    dispatch(searchByFilter({ type: 'text', query: e.target.value }));
+  }
 
   return (
     <div className='post-form'>
@@ -16,9 +26,7 @@ const PostForm = ({ addPost }) => {
         className='form my-1'
         onSubmit={e => {
           e.preventDefault();
-          addPost({ title, message });
-          setTitle('');
-          setMessage('');
+          setText('');
         }}
       >
          {/* <textarea
@@ -31,12 +39,12 @@ const PostForm = ({ addPost }) => {
           required
         /> */}
         <textarea
-          name='tags'
+          name='search'
           cols='30'
-          rows='5'
-          placeholder='Description'
-          value={message}
-          onChange={e => setMessage(e.target.value)}
+          rows='2'
+          placeholder='Votre cible...'
+          value={text}
+          onChange={handleSearch}
           required
         />
         <input type='submit' className='btn btn-dark my-1' value='Chercher' />
@@ -45,11 +53,11 @@ const PostForm = ({ addPost }) => {
   );
 };
 
-PostForm.propTypes = {
-  addPost: PropTypes.func.isRequired
+PostSearch.propTypes = {
+  searchByFilter: PropTypes.func.isRequired
 };
 
 export default connect(
   null,
-  { addPost }
-)(PostForm);
+  { searchByFilter }
+)(PostSearch);

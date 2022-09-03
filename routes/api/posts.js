@@ -68,6 +68,19 @@ router.get('/', auth, async (req, res) => {
   }
 });
 
+// @route    GET api/posts/search
+// @desc     Get searched for posts
+// @access   Public
+// router.get('/', async (req, res) => {
+//   try {
+//     const posts = await Post.find(req.query);
+//     res.json(posts);
+//   } catch (err) {
+//     console.error(err.message);
+//     res.status(500).send('Server Error');
+//   }
+// });
+
 // @route    GET api/posts/:id
 // @desc     Get post by ID
 // @access   Private

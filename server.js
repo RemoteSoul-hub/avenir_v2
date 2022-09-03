@@ -1,6 +1,7 @@
 const express = require('express');
 const connectDB = require('./config/db');
 const path = require('path');
+const filterRoutes = require('./routes/api/filter');
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/posts', require('./routes/api/posts'));
 app.use('/api/service', require('./routes/api/service'));
+app.use('/api/posts/filter', filterRoutes);
 
 // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {

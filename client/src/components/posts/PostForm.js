@@ -6,6 +6,7 @@ import { addPost } from '../../actions/post';
 const PostForm = ({ addPost }) => {
   const [title, setTitle] = useState('');
   const [message, setMessage] = useState('');
+  // const [tags, setTags] = useState('');
 
   return (
     <div className='post-form'>
@@ -19,6 +20,7 @@ const PostForm = ({ addPost }) => {
           addPost({ title, message });
           setTitle('');
           setMessage('');
+          // setTags('');
         }}
       >
          <textarea
@@ -39,6 +41,15 @@ const PostForm = ({ addPost }) => {
           onChange={e => setMessage(e.target.value)}
           required
         />
+        {/* <textarea
+          name='tags'
+          cols='30'
+          rows='5'
+          placeholder='Tags'
+          value={tags}
+          onChange={e => setTags(e.target.value)}
+          required
+        /> */}
         <input type='submit' className='btn btn-dark my-1' value='Confirmer' />
       </form>
     </div>

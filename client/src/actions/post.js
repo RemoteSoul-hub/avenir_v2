@@ -8,7 +8,8 @@ import {
   ADD_POST,
   GET_POST,
   ADD_COMMENT,
-  REMOVE_COMMENT
+  REMOVE_COMMENT,
+  SEARCH_BY_FILTER
 } from './types';
 
 /*
@@ -25,6 +26,22 @@ export const getPosts = () => async (dispatch) => {
 
     dispatch({
       type: GET_POSTS,
+      payload: res.data
+    });
+  } catch (err) {
+    dispatch({
+      type: POST_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+
+export const searchByFilter = arg => async dispatch => {
+  try {
+    const res = await api.post('/posts/filter/search', arg);
+
+    dispatch({
+      type: SEARCH_BY_FILTER,
       payload: res.data
     });
   } catch (err) {
