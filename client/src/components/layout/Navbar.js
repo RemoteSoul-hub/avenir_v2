@@ -13,7 +13,7 @@ Accueil
         </Link>
       </li> */}
       <li>
-        <Link to="/posts">Emploi</Link>
+        <a href="/posts" alt="">Emploi</a>
       </li>
       {/* <li>
         <Link to="/logement">Logement</Link>
@@ -48,7 +48,7 @@ Accueil
         <Link to="/register">Inscription</Link>
       </li>
       <li>
-        <Link to="/login">Connexion</Link>
+        <Link to="/login"><img width="30" src="http://cdn.onlinewebfonts.com/svg/img_311846.png" alt="" /></Link>
       </li>
     </ul>
   );

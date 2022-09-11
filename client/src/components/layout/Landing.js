@@ -35,9 +35,18 @@ const Landing = ({ isAuthenticated }) => {
             </Link>
           </div> */}
             <div className="buttons">
-              <img width="30" src="https://louisville.edu/mcconnellcenter/images/facebook_logos_PNG19748.png" alt="facebook-icon" />
-              <img width="30" src="https://icon-library.com/images/facebook-icon-transparent-background/facebook-icon-transparent-background-2.jpg" alt="facebook-icon" />
-              <img width="30" src="https://i.pinimg.com/originals/34/50/9a/34509a05557bf30853af477a83b7c7bb.png" alt="facebook-icon" />
+              <a href="https://m.facebook.com/Parlons-Jeune-101189089383660" target="_blank" alt="Facebook">
+                <img width="30" src="https://louisville.edu/mcconnellcenter/images/facebook_logos_PNG19748.png" alt="facebook-icon" />
+              </a> 
+              <a href="https://twitter.com/ParlonsJeune" target="_blank" alt="Twitter">
+                <img width="30" src="https://cdn-icons-png.flaticon.com/512/124/124021.png" alt="twitter-icon"/>
+              </a> 
+              <a href="https://instagram.com/parlonsjeunefr" target="_blank" alt="Instagram">
+                <img width="30" src="https://icon-library.com/images/facebook-icon-transparent-background/facebook-icon-transparent-background-2.jpg" alt="ig-icon" />
+              </a> 
+              <a href="https://www.tiktok.com/@parlonsjeune" target="_blank" alt="Tiktok">
+                <img width="30" src="https://i.pinimg.com/originals/34/50/9a/34509a05557bf30853af477a83b7c7bb.png" alt="tiktok-icon" />
+              </a>
             {/* <Link to="/register" className="btn btn-primary">
               Inscription
             </Link> */}

@@ -12,12 +12,31 @@ const PostSchema = new Schema({
   message: {
     type: String
   },
+  cdd: {
+    type: Boolean,
+  },
+  cdi: {
+    type: Boolean,
+  },
+  alternance: {
+    type: Boolean, 
+  },
+  interim: {
+    type: Boolean,
+  },
+  partiel: {
+    type: Boolean,
+  },
+  plein: {
+    type: Boolean,
+    },
   creator: {
     type: String
   },
   // tags: {
   //   type: [String]
   // },
+  
   avatar : {
     type: String,
   },

@@ -10,7 +10,7 @@ const PostItem = ({
   removeLike,
   deletePost,
   auth,
-  post: { _id, title, message, creator, user, avatar, tags, likes, comments, date },
+  post: { _id, title, message, creator, user, avatar, cdd, cdi, interim, alternance, partiel, plein, tags, likes, comments, date },
   showActions
 }) => (
   <div className="post bg-white p-1 my-1">
@@ -19,6 +19,18 @@ const PostItem = ({
         <img className="round-img" src={avatar} alt="" />
         <h4>{creator}</h4>
       </Link>
+      {cdi == true ? 
+          ` CDI` : '' }
+      {cdd == true ? 
+          ` CDD` : '' }
+      {alternance == true ? 
+          ` Alternance` : '' }
+      {interim == true ? 
+          ` Interim` : '' }
+      {plein == true ? 
+          `- Temps plein` : '' }
+          {partiel == true ? 
+          `- Temps partiel` : '' }
     </div>
     <div>
       <h3 className="my-1 title">{title}</h3>
